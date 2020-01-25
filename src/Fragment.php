@@ -109,6 +109,14 @@ final class Fragment
     {
         return $this->source;
     }
+    
+    /**
+     * @return int
+     */
+    public function getLength(): int
+    {
+        return mb_strlen($this->value);
+    }
 
     /**
      * @param Fragment $other

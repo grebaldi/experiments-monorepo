@@ -1,5 +1,18 @@
-prototype(Neos.Fusion:Component(P < Dictionary, R)): R {
-    ...props: P
-    renderer: R
-    renderer.@context.props: P
+prototype(Neos.Fusion:Component<
+    Props ~ dictionary, 
+    Result
+>): Result {
+    ...props: Props
+    renderer: Result
+    renderer.@context.props: Props
+}
+
+type(Sitegeist.Monocle:StyleguideSettings<Props ~ dictionary>) < type(dictionary) {
+    title: string
+    description: string
+    props: partial<Props>
+}
+
+prototype(Neos.Fusion:Component) {
+    @styleguide: Sitegeist.Monocle:StyleguideSettings
 }

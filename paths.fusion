@@ -1,0 +1,7 @@
+'Top level path with \'spaces\' and <special> chars!?' {
+    'Nested path with spaces and prototype(special) chars!?' = null
+}
+
+describe.'Top level path accessed by operator' {
+    it.'Nested path accessed by operator' = null
+}

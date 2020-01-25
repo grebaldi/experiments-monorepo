@@ -1,0 +1,8 @@
+include: ./**/*.fusion
+include: resource://Vendor.Site/Private/Fusion/SomeFusionFile.fusion
+
+page = Neos.Neos:Page {
+    head {
+        title = ${q(node).property('title')}
+    }
+}

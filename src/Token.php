@@ -100,6 +100,21 @@ final class Token
     }
 
     /**
+     * @param TokenType $type
+     * @return Token
+     */
+    public function setType(TokenType $type): Token
+    {
+        return new Token(
+            $type,
+            $this->getValue(),
+            $this->getStart(),
+            $this->getEnd(),
+            $this->getSource()
+        );
+    }
+
+    /**
      * @return string
      */
     public function getValue(): string
