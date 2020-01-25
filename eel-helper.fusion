@@ -1,0 +1,6 @@
+type(Neos.Eel:ArrayHelper): dictionary {
+    length: function([list|dictionary], integer)
+    map: (T, R) function([list(T)|dictionary(T), function([T, integer], R)], R)
+}
+
+@context.Array: Neos.Eel:ArrayHelper

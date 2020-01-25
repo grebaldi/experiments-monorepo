@@ -1,0 +1,17 @@
+{
+    "name": "packagefactory/typed-fusion",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wilhelm Behncke",
+            "email": "wilhelm.behncke@protonmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "PackageFactory\\TypedFusion\\": "src/"
+        }
+    }
+}
