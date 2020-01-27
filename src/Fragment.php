@@ -72,8 +72,8 @@ final class Fragment
     public static function createEmpty(Source $source): Fragment {
         return new Fragment(
             '',
-            Position::create(0, 0),
-            Position::create(0, 0),
+            Position::create(0, 0, 0),
+            Position::create(0, 0, 0),
             $source
         );
     }

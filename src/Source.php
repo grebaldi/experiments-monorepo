@@ -71,13 +71,13 @@ final class Source implements \IteratorAggregate
         $columnIndex = 0;
         $length = strlen($this->contents);
 
-        for ($characterIndex = 0; $characterIndex < $length; $characterIndex++) {
-            $character = $this->contents{ $characterIndex };
+        for ($index = 0; $index < $length; $index++) {
+            $character = $this->contents{ $index };
 
             yield Fragment::create(
                 $character,
-                Position::create($rowIndex, $columnIndex),
-                Position::create($rowIndex, $columnIndex),
+                Position::create($index, $rowIndex, $columnIndex),
+                Position::create($index, $rowIndex, $columnIndex),
                 $this
             );
 

@@ -6,6 +6,11 @@ final class Position
     /**
      * @var int
      */
+    private $index;
+
+    /**
+     * @var int
+     */
     private $rowIndex;
 
     /**
@@ -14,30 +19,44 @@ final class Position
     private $columnIndex;
 
     /**
+     * @param integer $index
      * @param integer $rowIndex
      * @param integer $columnIndex
      */
     private function __construct(
+        int $index,
         int $rowIndex,
         int $columnIndex
     ) {
+        $this->index = $index;
         $this->rowIndex = $rowIndex;
         $this->columnIndex = $columnIndex;
     }
 
     /**
+     * @param integer $index
      * @param integer $rowIndex
      * @param integer $columnIndex
      * @return Position
      */
     public static function create(
+        int $index,
         int $rowIndex,
         int $columnIndex
     ): Position {
         return new Position(
+            $index,
             $rowIndex,
             $columnIndex
         );
+    }
+
+    /**
+     * @return integer
+     */
+    public function getIndex(): int
+    {
+        return $this->index;
     }
 
     /**
@@ -62,10 +81,7 @@ final class Position
      */
     public function equals(Position $other): bool
     {
-        return (
-            $this->getRowIndex() === $other->getRowIndex() &&
-            $this->getColumnIndex() === $other->getColumnIndex()
-        );
+        return $this->getIndex() === $other->getIndex();
     }
 
     /**
@@ -74,10 +90,7 @@ final class Position
      */
     public function gt(Position $other): bool
     {
-        return (
-            $this->getRowIndex() > $other->getRowIndex() ||
-            $this->getColumnIndex() > $other->getColumnIndex()
-        );
+        return $this->getIndex() > $other->getIndex();
     }
 
     /**
@@ -86,7 +99,7 @@ final class Position
      */
     public function gte(Position $other): bool
     {
-        return ($this->gt($other) || $this->equals($other));
+        return $this->gt($other) || $this->equals($other);
     }
 
     /**
@@ -95,10 +108,7 @@ final class Position
      */
     public function lt(Position $other): bool
     {
-        return (
-            $this->getRowIndex() < $other->getRowIndex() ||
-            $this->getColumnIndex() < $other->getColumnIndex()
-        );
+        return $this->getIndex() < $other->getIndex();
     }
 
     /**
@@ -107,6 +117,6 @@ final class Position
      */
     public function lte(Position $other): bool
     {
-        return ($this->lt($other) || $this->equals($other));
+        return $this->lt($other) || $this->equals($other);
     }
 }
