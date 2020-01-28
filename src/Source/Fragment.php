@@ -1,13 +1,8 @@
 <?php
-namespace PackageFactory\TypedFusion;
+namespace PackageFactory\TypedFusion\Source;
 
-final class Token
+final class Fragment
 {
-    /**
-     * @var TokenType
-     */
-    private $type;
-
     /**
      * @var string
      */
@@ -29,20 +24,17 @@ final class Token
     private $source;
 
     /**
-     * @param TokenType $type
      * @param string $value
      * @param Position $start
      * @param Position $end
      * @param Source $source
      */
     private function __construct(
-        TokenType $type,
         string $value,
         Position $start,
         Position $end,
         Source $source
     ) {
-        $this->type = $type;
         $this->value = $value;
         $this->start = $start;
         $this->end = $end;
@@ -50,22 +42,19 @@ final class Token
     }
 
     /**
-     * @param TokenType $type
      * @param string $value
      * @param Position $start
      * @param Position $end
      * @param Source $source
-     * @return Token
+     * @return Fragment
      */
     public static function create(
-        TokenType $type,
         string $value,
         Position $start,
         Position $end,
         Source $source
-    ): Token {
-        return new Token(
-            $type,
+    ): Fragment {
+        return new Fragment(
             $value,
             $start,
             $end,
@@ -74,43 +63,18 @@ final class Token
     }
 
     /**
-     * @param TokenType $type
-     * @param Fragment $fragment
-     * @return Token
+     * @param string $value
+     * @param Position $start
+     * @param Position $end
+     * @param Source $source
+     * @return Fragment
      */
-    public static function createFromFragment(
-        TokenType $type,
-        Fragment $fragment
-    ): Token {
-        return new Token(
-            $type,
-            $fragment->getValue(),
-            $fragment->getStart(),
-            $fragment->getEnd(),
-            $fragment->getSource()
-        );
-    }
-
-    /**
-     * @return TokenType
-     */
-    public function getType(): TokenType
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param TokenType $type
-     * @return Token
-     */
-    public function setType(TokenType $type): Token
-    {
-        return new Token(
-            $type,
-            $this->getValue(),
-            $this->getStart(),
-            $this->getEnd(),
-            $this->getSource()
+    public static function createEmpty(Source $source): Fragment {
+        return new Fragment(
+            '',
+            Position::create(0, 0, 0),
+            Position::create(0, 0, 0),
+            $source
         );
     }
 
@@ -144,5 +108,31 @@ final class Token
     public function getSource(): Source
     {
         return $this->source;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getLength(): int
+    {
+        return mb_strlen($this->value);
+    }
+
+    /**
+     * @param Fragment $other
+     * @return Fragment
+     */
+    public function append(Fragment $other): Fragment 
+    {
+        if ($this->getSource() !== $other->getSource()) {
+            throw new \Exception('@TODO: Exception');
+        }
+
+        return new Fragment(
+            $this->getValue() . $other->getValue(),
+            $this->getStart(),
+            $other->getEnd(),
+            $this->getSource()
+        );
     }
 }

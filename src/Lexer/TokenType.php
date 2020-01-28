@@ -1,5 +1,5 @@
 <?php
-namespace PackageFactory\TypedFusion;
+namespace PackageFactory\TypedFusion\Lexer;
 
 final class TokenType
 {

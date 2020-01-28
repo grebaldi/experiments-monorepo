@@ -1,5 +1,5 @@
 <?php
-namespace PackageFactory\TypedFusion;
+namespace PackageFactory\TypedFusion\Source;
 
 final class Source implements \IteratorAggregate
 {

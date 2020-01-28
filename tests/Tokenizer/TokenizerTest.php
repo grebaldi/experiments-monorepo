@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use PackageFactory\TypedFusion\Source;
-use PackageFactory\TypedFusion\Tokenizer;
+use PackageFactory\TypedFusion\Source\Source;
+use PackageFactory\TypedFusion\Lexer\Tokenizer;
 
 use PackageFactory\TypedFusion\Tests\BaseTestCase;
 

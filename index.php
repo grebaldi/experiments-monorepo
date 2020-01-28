@@ -1,8 +1,8 @@
 <?php
 require_once 'vendor/autoload.php';
 
-use PackageFactory\TypedFusion\Source;
-use PackageFactory\TypedFusion\Tokenizer;
+use PackageFactory\TypedFusion\Source\Source;
+use PackageFactory\TypedFusion\Lexer\Tokenizer;
 
 $source = Source::createFromFile('./meta.fusion');
 $tokenizer = Tokenizer::create($source);
