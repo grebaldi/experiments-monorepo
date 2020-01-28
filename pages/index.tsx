@@ -1,22 +1,27 @@
 import * as React from "react";
 import { useObservable } from "react-use";
-import { map, distinctUntilChanged, tap } from "rxjs/operators";
+import { map, distinctUntilChanged, tap, startWith } from "rxjs/operators";
 import uuid from "uuid";
-import { format, formatDistance } from "date-fns";
+import fetch from "isomorphic-unfetch";
 
-import {state$, action$} from "../src/domain";
+import {State, getInitialState, getState$, action$} from "../src/domain";
 import TimeAgo from "../src/component/TimeAgo";
 
 const now = Date.now();
 
-export default function Home() {
+type HomeProps = {
+	initialState: State
+}
+
+export default function Home(props: HomeProps) {
 	const thoughts$ = React.useMemo(() => {
-		return state$.pipe(
+		return getState$(props.initialState).pipe(
+			startWith(props.initialState),
 			map(state => state.thoughts.all),
 			distinctUntilChanged(),
-			map(thoughts => Object.values(thoughts)),
+			map(thoughts => Object.values(thoughts))
 		);
-	}, [1]);
+	}, [props.initialState]);
 	const thoughts = useObservable(thoughts$, []);
 	const [content, setContent] = React.useState<string>('');
 
@@ -83,3 +88,16 @@ export default function Home() {
 		</section>
 	);
 }
+
+Home.getInitialProps = async function getInitialProps(): Promise<HomeProps> {
+	const initialState = await getInitialState(`http://localhost:3000/api/load`);
+
+	return { initialState };
+}
+
+action$.subscribe(async action => {
+	await fetch('/api/save', {
+		method: 'POST',
+		body: JSON.stringify(action)
+	});
+});

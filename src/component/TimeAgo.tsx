@@ -3,7 +3,7 @@ import { format, formatDistance } from "date-fns";
 import { useHarmonicIntervalFn } from "react-use";
 
 type TimeAgoProps = {
-    dateTime: Date
+    dateTime: Date | string
     template?: (formattedDateTimeDistance: string) => string
     format?: string
     className?: string
@@ -11,17 +11,21 @@ type TimeAgoProps = {
 }
 
 export default function TimeAgo(props: TimeAgoProps) {
+    const dateTime = React.useMemo(
+        () => typeof props.dateTime === 'string' ? Date.parse(props.dateTime) : props.dateTime,
+        [props.dateTime]
+    );
     const formattedDateTime = React.useMemo(
-        () => format(props.dateTime, props.format!), 
+        () => format(dateTime, props.format!), 
         [props.dateTime, props.format]
     );
     const [formattedDateTimeDistance, setFormattedDateTimeDistance] = React.useState(
-        props.template!(formatDistance(props.dateTime, Date.now()))
+        props.template!(formatDistance(dateTime, Date.now()))
     );
 
     useHarmonicIntervalFn(function recalculateDistance() {
         setFormattedDateTimeDistance(
-            props.template!(formatDistance(props.dateTime, Date.now()))
+            props.template!(formatDistance(dateTime, Date.now()))
         )
     }, props.refreshInterval);
 
