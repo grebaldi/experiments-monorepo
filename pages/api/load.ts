@@ -8,7 +8,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     const data$ = new Observable((observer: Subscriber<any>) => {
         exists('data/data.yaml', exists => {
             if (exists) {
-                readFile('data.yaml', (err, buffer) => {
+                readFile('data/data.yaml', (err, buffer) => {
                     if (err) {
                         observer.error(err);
                     } else {

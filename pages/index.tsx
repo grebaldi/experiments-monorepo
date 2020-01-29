@@ -38,6 +38,13 @@ export default function Home(props: HomeProps) {
 		setContent('');
 	}
 
+	function handleLike(id: string) {
+		action$.next({
+			name: "ThoughtWasLiked",
+			payload: {id}
+		})
+	}
+
 	return (
 		<section>
 			<form 
@@ -74,14 +81,24 @@ export default function Home(props: HomeProps) {
 				{thoughts.map(thought => (
 					<li 
 						key={thought.id}
-						className="bg-white shadow-md my-3 p-3 relative"
+						className="bg-white shadow-md my-3 relative"
 						>
-						<TimeAgo
-							className="absolute top-0 right-0 p-2 text-xs text-gray-500"
-							dateTime={thought.creation_date_time}
-							template={f => `${f} ago`}
-							/>
-						{thought.content}
+						<header className="px-2 py-1 border-b border-gray-300 flex justify-end">
+							<TimeAgo
+								className="text-xs text-gray-500"
+								dateTime={thought.creation_date_time}
+								template={f => `${f} ago`}
+								/>
+						</header>
+						
+						<div className="p-2">
+							{thought.content}
+						</div>
+
+						<footer className="flex p-2 justify-end text-xs">
+							<div className="mr-2">{thought.number_of_likes}</div>
+							<button onClick={() => handleLike(thought.id)}>👍</button>
+						</footer>
 					</li>
 				))}
 			</ul>
