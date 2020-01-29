@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 use PackageFactory\TypedFusion\Source\Source;
 use PackageFactory\TypedFusion\Lexer\Tokenizer;
 
-$source = Source::createFromFile('./meta.fusion');
+$source = Source::createFromFile('./afx.fusion');
 $tokenizer = Tokenizer::create($source);
 
 $index = 0;
