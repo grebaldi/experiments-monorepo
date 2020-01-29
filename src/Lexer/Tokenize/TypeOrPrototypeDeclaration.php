@@ -148,6 +148,13 @@ trait TypeOrPrototypeDeclaration
                     $iterator->next();
                 break;
 
+                case $value === '\'':
+                case $value === '"':
+                    foreach ($this->tokenizeStringLiteral($iterator) as $token) {
+                        yield $token;
+                    }
+                break;
+
                 default: 
                     return;
             }
