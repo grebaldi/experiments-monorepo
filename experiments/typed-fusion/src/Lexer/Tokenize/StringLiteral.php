@@ -75,6 +75,24 @@ trait StringLiteral
                     return;
                 break;
 
+                case $value === "\n":
+                    if ($capture !== null) {
+                        yield Token::createFromFragment(
+                            TokenType::STRING_VALUE(),
+                            $capture
+                        );
+
+                        $capture = null;
+                    }
+
+                    yield Token::createFromFragment(
+                        TokenType::END_OF_LINE(),
+                        $fragment
+                    );
+
+                    $iterator->next();
+                break;
+
                 default:
                     if ($capture === null) {
                         $capture = $fragment;

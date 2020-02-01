@@ -45,7 +45,18 @@ OPERATOR_ASSIGN_VALUE          167   5     13    167   5     13    =
 WHITESPACE                     168   5     14    168   5     14     
 IDENTIFIER                     169   5     15    171   5     17    afx
 STRING_START                   172   5     18    172   5     18    `
-STRING_VALUE                   173   5     19    324   11    3              <div>             <img src={props.image.source}/>             <h2>{props.title}</h2>             <p>{props.description}</p>         </div>     
+END_OF_LINE                    173   5     19    173   5     19     
+STRING_VALUE                   174   6     0     186   6     12            <div>
+END_OF_LINE                    187   6     13    187   6     13     
+STRING_VALUE                   188   7     0     230   7     42                <img src={props.image.source}/>
+END_OF_LINE                    231   7     43    231   7     43     
+STRING_VALUE                   232   8     0     265   8     33                <h2>{props.title}</h2>
+END_OF_LINE                    266   8     34    266   8     34     
+STRING_VALUE                   267   9     0     304   9     37                <p>{props.description}</p>
+END_OF_LINE                    305   9     38    305   9     38     
+STRING_VALUE                   306   10    0     319   10    13            </div>
+END_OF_LINE                    320   10    14    320   10    14     
+STRING_VALUE                   321   11    0     324   11    3         
 STRING_END                     172   5     18    172   5     18    `
 WHITESPACE                     326   11    5     326   11    5      
 BRACKET_CURLY_CLOSE            327   12    0     327   12    0     }
