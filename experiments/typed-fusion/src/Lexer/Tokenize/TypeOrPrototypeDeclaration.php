@@ -24,11 +24,14 @@ trait TypeOrPrototypeDeclaration
 
             switch (true) {
                 case $value === "\n":
-                    if ($terminateOnBracket) {
-                        foreach ($this->tokenizeWhitespace($iterator) as $token) {
-                            yield $token;
-                        }
-                    } else {
+                    yield Token::createFromFragment(
+                        TokenType::END_OF_LINE(),
+                        $fragment
+                    );
+
+                    $iterator->next();
+
+                    if (!$terminateOnBracket) {
                         return;
                     }
                 break;
