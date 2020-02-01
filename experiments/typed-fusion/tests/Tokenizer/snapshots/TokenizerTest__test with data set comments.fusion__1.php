@@ -7,7 +7,7 @@ COMMENT_CONTENT                24    1     2     51    1     29     Another Sing
 COMMENT_START                  53    2     0     54    2     1     /*
 COMMENT_CONTENT                55    2     2     78    3     22         Multi Line Comment 
 COMMENT_END                    79    4     0     80    4     1     */
-WHITESPACE                     81    4     2     81    4     2      
+END_OF_LINE                    81    4     2     81    4     2      
 COMMENT_START                  82    5     0     82    5     0     #
 END_OF_LINE                    83    5     1     83    5     1      
 COMMENT_CONTENT                84    6     0     85    6     1     //

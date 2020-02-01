@@ -13,12 +13,14 @@ IDENTIFIER                     42    0     42    62    0     62    Neos.Fusion:C
 BRACKET_ROUND_CLOSE            63    0     63    63    0     63    )
 WHITESPACE                     64    0     64    64    0     64     
 BRACKET_CURLY_OPEN             65    0     65    65    0     65    {
-WHITESPACE                     66    0     66    70    1     3          
+END_OF_LINE                    66    0     66    66    0     66     
+WHITESPACE                     67    1     0     70    1     3         
 IDENTIFIER                     71    1     4     75    1     8     image
 OPERATOR_ASSIGN_TYPE           76    1     9     76    1     9     :
 WHITESPACE                     77    1     10    77    1     10     
 IDENTIFIER                     78    1     11    99    1     32    Vendor.Site:Type.Image
-WHITESPACE                     100   1     33    104   2     3          
+END_OF_LINE                    100   1     33    100   1     33     
+WHITESPACE                     101   2     0     104   2     3         
 IDENTIFIER                     105   2     4     109   2     8     title
 OPERATOR_ASSIGN_TYPE           110   2     9     110   2     9     :
 WHITESPACE                     111   2     10    111   2     10     
@@ -28,7 +30,8 @@ OPERATOR_ASSIGN_VALUE          119   2     18    119   2     18    =
 WHITESPACE                     120   2     19    120   2     19     
 STRING_START                   121   2     20    121   2     20    \'
 STRING_END                     121   2     20    121   2     20    \'
-WHITESPACE                     123   2     22    127   3     3          
+END_OF_LINE                    123   2     22    123   2     22     
+WHITESPACE                     124   3     0     127   3     3         
 IDENTIFIER                     128   3     4     138   3     14    description
 OPERATOR_ASSIGN_TYPE           139   3     15    139   3     15    :
 WHITESPACE                     140   3     16    140   3     16     
@@ -38,7 +41,9 @@ OPERATOR_ASSIGN_VALUE          148   3     24    148   3     24    =
 WHITESPACE                     149   3     25    149   3     25     
 STRING_START                   150   3     26    150   3     26    \'
 STRING_END                     150   3     26    150   3     26    \'
-WHITESPACE                     152   3     28    157   5     3           
+END_OF_LINE                    152   3     28    152   3     28     
+END_OF_LINE                    153   4     0     153   4     0      
+WHITESPACE                     154   5     0     157   5     3         
 IDENTIFIER                     158   5     4     165   5     11    renderer
 WHITESPACE                     166   5     12    166   5     12     
 OPERATOR_ASSIGN_VALUE          167   5     13    167   5     13    =
@@ -58,7 +63,7 @@ STRING_VALUE                   306   10    0     319   10    13            </div
 END_OF_LINE                    320   10    14    320   10    14     
 STRING_VALUE                   321   11    0     324   11    3         
 STRING_END                     172   5     18    172   5     18    `
-WHITESPACE                     326   11    5     326   11    5      
+END_OF_LINE                    326   11    5     326   11    5      
 BRACKET_CURLY_CLOSE            327   12    0     327   12    0     }
 END_OF_FILE                    327   12    0     327   12    0     
 ';

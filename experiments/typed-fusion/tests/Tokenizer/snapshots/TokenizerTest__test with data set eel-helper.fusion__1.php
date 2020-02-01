@@ -13,7 +13,8 @@ IDENTIFIER                     34    0     34    43    0     43    dictionary
 BRACKET_ROUND_CLOSE            44    0     44    44    0     44    )
 WHITESPACE                     45    0     45    45    0     45     
 BRACKET_CURLY_OPEN             46    0     46    46    0     46    {
-WHITESPACE                     47    0     47    51    1     3          
+END_OF_LINE                    47    0     47    47    0     47     
+WHITESPACE                     48    1     0     51    1     3         
 IDENTIFIER                     52    1     4     57    1     9     length
 OPERATOR_ASSIGN_TYPE           58    1     10    58    1     10    :
 WHITESPACE                     59    1     11    59    1     11     
@@ -26,7 +27,8 @@ COMMA                          76    1     28    76    1     28    ,
 WHITESPACE                     77    1     29    77    1     29     
 IDENTIFIER                     78    1     30    84    1     36    integer
 BRACKET_ARROW_CLOSE            85    1     37    85    1     37    >
-WHITESPACE                     86    1     38    90    2     3          
+END_OF_LINE                    86    1     38    86    1     38     
+WHITESPACE                     87    2     0     90    2     3         
 IDENTIFIER                     91    2     4     93    2     6     map
 OPERATOR_ASSIGN_TYPE           94    2     7     94    2     7     :
 WHITESPACE                     95    2     8     95    2     8      
@@ -63,9 +65,10 @@ COMMA                          149   2     62    149   2     62    ,
 WHITESPACE                     150   2     63    150   2     63     
 IDENTIFIER                     151   2     64    151   2     64    R
 BRACKET_ARROW_CLOSE            152   2     65    152   2     65    >
-WHITESPACE                     153   2     66    153   2     66     
+END_OF_LINE                    153   2     66    153   2     66     
 BRACKET_CURLY_CLOSE            154   3     0     154   3     0     }
-WHITESPACE                     155   3     1     156   4     0       
+END_OF_LINE                    155   3     1     155   3     1      
+END_OF_LINE                    156   4     0     156   4     0      
 IDENTIFIER                     157   5     0     164   5     7     @context
 SEPARATOR_PATH                 165   5     8     165   5     8     .
 IDENTIFIER                     166   5     9     170   5     13    Array

@@ -12,19 +12,43 @@ trait Whitespace
      */
     private function tokenizeWhitespace(iterable $iterator): iterable
     {
-        $capture = $iterator->current();
-        $iterator->next();
+        $capture = null;
 
         while ($fragment = $iterator->current()) {
-            if (ctype_space($fragment->getValue())) {
-                $capture = $capture->append($fragment);
+            $value = $fragment->getValue();
+
+            if ($value === "\n") {
+                if ($capture !== null) {
+                    yield Token::createFromFragment(
+                        TokenType::WHITESPACE(),
+                        $capture
+                    );            
+
+                    $capture = null;
+                }
+
+                yield Token::createFromFragment(
+                    TokenType::END_OF_LINE(),
+                    $fragment
+                );
+
+                $iterator->next();
+            } elseif (ctype_space($value)) {
+                if ($capture === null) {
+                    $capture = $fragment;
+                } else {
+                    $capture = $capture->append($fragment);
+                }
+
                 $iterator->next();
             } else break;
         }
 
-        yield Token::createFromFragment(
-            TokenType::WHITESPACE(),
-            $capture
-        );
+        if ($capture !== null) {
+            yield Token::createFromFragment(
+                TokenType::WHITESPACE(),
+                $capture
+            );
+        }
     }
 }
