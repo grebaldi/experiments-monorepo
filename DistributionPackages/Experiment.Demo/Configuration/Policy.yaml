@@ -1,0 +1,11 @@
+privilegeTargets:
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Experiment.Demo:GraphQl':
+      matcher: 'method(t3n\GraphQL\Controller\GraphQLController->.*Action())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'Experiment.Demo:GraphQl'
+        permission: GRANT

@@ -1,0 +1,11 @@
+collection {
+    ... on NodeType__Vendor_Site__Content_ImageWithText {
+        properties {
+            image: asset(name: "image") {
+                srcset(srcset: "...")
+                sizes(srcset: "...")
+            }
+            test: string(name: "text")
+        }
+    }
+}

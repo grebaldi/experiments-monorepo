@@ -1,0 +1,19 @@
+{
+    "name": "experiment/demo",
+    "type": "neos-site",
+    "version": "1.0.0",
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes-basemixins": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Experiment\\Demo\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Experiment.Demo"
+        }
+    }
+}

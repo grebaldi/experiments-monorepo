@@ -1,0 +1,5 @@
+prototype(Experiment.Demo:Document.Page) < prototype(Neos.Fusion:Component) {
+    renderer = Experiment.Demo:Document.Base {
+        body = Experiment.Demo:Component.Template.Page
+    }
+}

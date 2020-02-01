@@ -1,0 +1,9 @@
+t3n:
+  GraphQL:
+    endpoints:
+      'api':
+        schemas:
+          root:
+            typeDefs: resource://Experiment.Demo/Private/GraphQL/schema.graphql
+            resolvers:
+              Query: Experiment\Demo\Application\GraphQl\QueryResolver

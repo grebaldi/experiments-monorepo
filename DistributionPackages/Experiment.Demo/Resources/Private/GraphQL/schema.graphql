@@ -1,0 +1,36 @@
+type Query {
+  ping: String!
+  node: Node
+}
+
+type Mutation {
+  pong: String!
+}
+
+type Node {
+  nodeType: NodeType!  
+  identifier: String!
+  context: Context!
+  properties: Properties
+}
+
+type NodeType {
+  name: String!
+}
+
+type Context {
+  workspace: Workspace!
+}
+
+type Workspace {
+  name: String!
+}
+
+type Properties {
+  string(name: String!): String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

@@ -1,0 +1,3 @@
+{
+  "presets": ["module:@sitegeist/es-neos-babel-configuration"]
+}
