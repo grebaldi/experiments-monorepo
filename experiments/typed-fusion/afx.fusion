@@ -1,0 +1,13 @@
+prototype(Vendor.Site:Teaser) < prototype(Neos.Fusion:Component) {
+    image: Vendor.Site:Type.Image
+    title: string = ''
+    description: string = ''
+
+    renderer = afx`
+        <div>
+            <img src={props.image.source}/>
+            <h2>{props.title}</h2>
+            <p>{props.description}</p>
+        </div>
+    `
+}

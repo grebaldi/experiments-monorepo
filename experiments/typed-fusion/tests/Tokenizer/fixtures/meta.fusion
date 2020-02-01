@@ -1,0 +1,11 @@
+@context {
+    node = ${documentNode}
+}
+
+type(Neos.Fusion:TCacheConfiguration) < type(dictionary) {
+    mode: 'cached' | 'uncached' | 'embed' | 'dynamic'
+}
+
+@cache {
+    mode ''
+}

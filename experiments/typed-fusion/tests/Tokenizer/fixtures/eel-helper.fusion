@@ -1,0 +1,6 @@
+type(Neos.Eel:ArrayHelper) < type(dictionary) {
+    length: function<[array], integer>
+    map: {T, R} function<[array<T>, function<[T, integer], R>], R>
+}
+
+@context.Array: Neos.Eel:ArrayHelper
