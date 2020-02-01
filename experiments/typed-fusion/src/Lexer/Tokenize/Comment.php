@@ -90,13 +90,16 @@ trait Comment
                         TokenType::COMMENT_CONTENT(),
                         $capture
                     );
-                    return;
                 }
-
+                
                 yield Token::createFromFragment(
                     TokenType::END_OF_LINE(),
                     $fragment
                 );
+                
+                if ($capture !== null) {
+                    return;
+                }
             } elseif ($capture === null) {
                 $capture = $fragment;
                 $iterator->next();
