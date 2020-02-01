@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  graphql-playground:
+    container_name: ddev-${DDEV_SITENAME}-graphql-playground
+    image: mkrou/graphql-playground-docker
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    environment:
+      - VIRTUAL_HOST=${DDEV_HOSTNAME}
+      - HTTP_EXPOSE=8080
+      - HOST=https://neos-experiment-distribution.ddev.site/graphql-playground.html
+    ports:
+      - 8080

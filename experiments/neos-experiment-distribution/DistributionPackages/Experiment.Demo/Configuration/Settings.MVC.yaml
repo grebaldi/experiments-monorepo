@@ -1,0 +1,22 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Neos.Neos': ~
+        'Neos.Neos.Ui': ~
+        'Neos.Seo': ~
+        'Neos.Media': ~
+        'Neos.Media.Browser': ~
+        'Sitegeist.Monocle': ~
+        'Sitegeist.MagicWand': ~
+        'Sitegeist.Kaleidoscope': ~
+        'Experiment.Demo':
+          position: 'start'
+    # http:
+    #   chain:
+    #     'preprocess':
+    #       chain:
+    #         'allowCors':
+    #           component: 'Experiment\Demo\Http\CorsComponent'
+    #           componentOptions:
+    #             origin: '*'

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <site name="Experiment.Demo" state="1" siteResourcesPackageKey="Experiment.Demo" siteNodeName="experiment-demo">
+        <nodes formatVersion="2.0">
+            <node nodeName="experiment-demo">
+                <variant
+                    workspace="live"
+                    nodeType="Experiment.Demo:Document.HomePage"
+                    sortingIndex="100"
+                    version="1"
+                    removed=""
+                    hidden=""
+                    hiddenInIndex=""
+                    >
+                    <dimensions/>
+                    <accessRoles __type="array"/>
+                    <properties>
+                        <title __type="string">Experiment.Demo</title>
+                        <uriPathSegment __type="string">experiment-demo</uriPathSegment>
+                    </properties>
+                </variant>
+                <node nodeName="main">
+                    <variant
+                        workspace="live"
+                        nodeType="Experiment.Demo:Collection.Content.Main"
+                        sortingIndex="100"
+                        version="1"
+                        removed=""
+                        hidden=""
+                        hiddenInIndex=""
+                        >
+                        <dimensions/>
+                        <accessRoles __type="array" />
+                    </variant>
+                </node>
+            </node>
+        </nodes>
+    </site>
+</root>

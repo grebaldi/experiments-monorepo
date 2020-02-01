@@ -1,0 +1,10 @@
+'Experiment.Demo:Document.HomePage':
+  superTypes:
+    'Experiment.Demo:Document.Page': true
+    'Experiment.Demo:Constraint.Document.Restricted': true
+  ui:
+    icon: globe
+    label: i18n
+  childNodes:
+    notfound:
+      type: Experiment.Demo:Document.Error.404

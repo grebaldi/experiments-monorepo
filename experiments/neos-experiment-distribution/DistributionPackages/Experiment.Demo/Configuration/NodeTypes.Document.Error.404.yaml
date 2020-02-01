@@ -1,0 +1,15 @@
+'Experiment.Demo:Document.Error.404':
+  superTypes:
+    'Experiment.Demo:Document.Page': true
+    'Experiment.Demo:Constraint.Document.Restricted': true
+  ui:
+    icon: exclamation-triangle
+    label: i18n
+  properties:
+    title:
+      defaultValue: '404'
+    uriPathSegment:
+      ui:
+        inspector:
+          editorOptions:
+            disabled: true

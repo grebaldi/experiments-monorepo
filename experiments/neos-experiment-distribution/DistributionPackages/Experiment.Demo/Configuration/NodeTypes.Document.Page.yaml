@@ -1,0 +1,18 @@
+'Experiment.Demo:Document.Page':
+  superTypes:
+    'Experiment.Demo:Document': true
+
+  ui:
+    icon: file
+    label: i18n
+
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neos.Neos:Document': false
+      'Neos.Neos:Shortcut': true
+      'Experiment.Demo:Document': true
+      'Experiment.Demo:Constraint.Document.Restricted': false
+  childNodes:
+    main:
+      type: 'Experiment.Demo:Collection.Content.Main'
