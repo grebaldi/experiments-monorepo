@@ -25,14 +25,18 @@ trait TypeOrPrototypeDeclaration
             switch (true) {
                 case $value === "\n":
                     if ($terminateOnBracket) {
-                        yield $this->tokenizeWhitespace($iterator);
+                        foreach ($this->tokenizeWhitespace($iterator) as $token) {
+                            yield $token;
+                        }
                     } else {
                         return;
                     }
                 break;
 
                 case ctype_space($value):
-                    yield $this->tokenizeWhitespace($iterator);
+                    foreach ($this->tokenizeWhitespace($iterator) as $token) {
+                        yield $token;
+                    }
                 break;
 
                 case ctype_alpha($value):

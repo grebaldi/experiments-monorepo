@@ -18,7 +18,9 @@ trait Expression
 
             switch(true) {
                 case ctype_space($value):
-                    yield $this->tokenizeWhitespace($iterator);
+                    foreach ($this->tokenizeWhitespace($iterator) as $token) {
+                        yield $token;
+                    }
                 break;
 
                 case ctype_alpha($value):

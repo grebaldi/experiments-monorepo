@@ -8,9 +8,9 @@ trait Whitespace
 {
     /**
      * @param iterable $iterator
-     * @return Token
+     * @return iterable
      */
-    private function tokenizeWhitespace(iterable $iterator): Token
+    private function tokenizeWhitespace(iterable $iterator): iterable
     {
         $capture = $iterator->current();
         $iterator->next();
@@ -22,7 +22,7 @@ trait Whitespace
             } else break;
         }
 
-        return Token::createFromFragment(
+        yield Token::createFromFragment(
             TokenType::WHITESPACE(),
             $capture
         );

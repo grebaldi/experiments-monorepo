@@ -42,7 +42,9 @@ trait IncludeStatement
 
                 case ctype_space($value):
                     $capture = null;
-                    yield $this->tokenizeWhitespace($iterator);
+                    foreach ($this->tokenizeWhitespace($iterator) as $token) {
+                        yield $token;
+                    }
                 break;
 
 

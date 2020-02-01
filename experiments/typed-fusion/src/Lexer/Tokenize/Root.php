@@ -42,7 +42,9 @@ trait Root
                 break;
 
                 case ctype_space($value):
-                    yield $this->tokenizeWhitespace($iterator);
+                    foreach ($this->tokenizeWhitespace($iterator) as $token) {
+                        yield $token;
+                    }
                 break;
 
                 case ctype_digit($value):
