@@ -1,0 +1,8 @@
+query = getNodes(context: { workspace: "live" }) {
+    match ${nodeType.name + '.Content'}
+}
+
+for = Neos.Neos:Image.Content {
+    title
+
+}

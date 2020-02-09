@@ -1,0 +1,6 @@
+{
+    "Neos.Neos\\ContentRepository": {
+        "@args": { "context": { "workspace": "live" } },
+        ""
+    }
+}
