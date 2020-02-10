@@ -1,6 +1,7 @@
 <?php
 namespace PackageFactory\TypedFusion\Lexer\Tokenize;
 
+use PackageFactory\TypedFusion\Lexer\Exception\UnexpectedFragmentException;
 use PackageFactory\TypedFusion\Lexer\Token;
 use PackageFactory\TypedFusion\Lexer\TokenType;
 
@@ -16,7 +17,8 @@ trait RestOrPathSeparator
 
         if ($capture->getValue() === '.') {
             $iterator->next();
-        } else throw new \Exception('@TODO: Unexpected Fragment');
+        } else throw UnexpectedFragmentException::
+                whileStartingRestOrPathSeparatorDisambiguation($capture);
 
         while ($fragment = $iterator->current()) {
             $value = $fragment->getValue();
@@ -33,7 +35,8 @@ trait RestOrPathSeparator
                         );
                         return;
                     } elseif ($capture->getLength() > 3) {
-                        throw new \Exception('@TODO: Unexpected Fragment');
+                        throw UnexpectedFragmentException::
+                            whileCapturingRestOperator($capture);
                     }
                 break;
 
@@ -45,7 +48,8 @@ trait RestOrPathSeparator
                         );
                         return;
                     } elseif ($capture->getLength() > 1) {
-                        throw new \Exception('@TODO: Unexpected Fragment');
+                        throw UnexpectedFragmentException::
+                            whileCapturingPathSeparator($capture);
                     }
                 break;
             }

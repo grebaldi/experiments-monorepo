@@ -1,6 +1,7 @@
 <?php
 namespace PackageFactory\TypedFusion\Lexer\Tokenize;
 
+use PackageFactory\TypedFusion\Lexer\Exception\UnexpectedFragmentException;
 use PackageFactory\TypedFusion\Source\Fragment;
 use PackageFactory\TypedFusion\Lexer\Token;
 use PackageFactory\TypedFusion\Lexer\TokenType;
@@ -21,7 +22,8 @@ trait IncludeStatement
                 );
 
                 $iterator->next();
-            } else throw new \Exception('@TODO: Unexpected Fragment');
+            } else throw UnexpectedFragmentException::
+                    whileTokenizingIncludeStatement($next);
         } else throw new \Exception('@TODO: Unexpected End of File');
 
         /** @var Fragment|null $capture */
@@ -31,7 +33,7 @@ trait IncludeStatement
             $value = $fragment->getValue();
 
             switch (true) {
-                case $value === "\n": 
+                case $value === "\n":
                     if ($capture !== null) {
                         yield Token::createFromFragment(
                             TokenType::INCLUDE_PATH(),

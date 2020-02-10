@@ -1,0 +1,4 @@
+....+
+include+ resource://Foo.bar/something.fusion
+path = ${a =+ c}
+/+ This comment is invalid

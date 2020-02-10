@@ -1,6 +1,7 @@
 <?php
 namespace PackageFactory\TypedFusion\Lexer\Tokenize;
 
+use PackageFactory\TypedFusion\Lexer\Exception\UnexpectedFragmentException;
 use PackageFactory\TypedFusion\Source\Fragment;
 use PackageFactory\TypedFusion\Lexer\Token;
 use PackageFactory\TypedFusion\Lexer\TokenType;
@@ -39,19 +40,15 @@ trait Comment
                         TokenType::COMMENT_START(),
                         $delimiter->append($next)
                     );
-                } else throw new \Exception(
-                    sprintf(
-                        '@TODO: Unexpected Fragment "%s" in line %s, character %s',
-                        $next->getValue(),
-                        $next->getStart()->getRowIndex(),
-                        $next->getStart()->getColumnIndex()
-                    )
-                );
+                } else {
+                    throw UnexpectedFragmentException::
+                        whileDisambiguatingLineAndBlockComment($next);
+                }
 
                 $iterator->next();
             } else throw new \Exception('@TODO: Unexpected end of file');
         }
-        
+
         /** @var Fragment|null $capture */
         $capture = null;
 
@@ -91,12 +88,12 @@ trait Comment
                         $capture
                     );
                 }
-                
+
                 yield Token::createFromFragment(
                     TokenType::END_OF_LINE(),
                     $fragment
                 );
-                
+
                 if ($capture !== null) {
                     return;
                 }

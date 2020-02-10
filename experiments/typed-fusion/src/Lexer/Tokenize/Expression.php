@@ -1,6 +1,7 @@
 <?php
 namespace PackageFactory\TypedFusion\Lexer\Tokenize;
 
+use PackageFactory\TypedFusion\Lexer\Exception\UnexpectedFragmentException;
 use PackageFactory\TypedFusion\Lexer\Token;
 use PackageFactory\TypedFusion\Lexer\TokenType;
 
@@ -165,7 +166,8 @@ trait Expression
                         );
 
                         $iterator->next();
-                    } else throw new \Exception('@TODO: Unexpected Fragment');
+                    } else throw UnexpectedFragmentException::
+                        whileTokenizingArrowOperatorInExpression($next);
                 break;
 
                 case $value === '\'':
