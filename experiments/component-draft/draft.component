@@ -1,0 +1,16 @@
+from './somewhere' import type ListItem
+
+title: string = 'Hello World'
+items: [ListItem] = [{
+    title: 'Item #1'
+    description: 'The first item'
+}]
+---
+<article>
+    <header>
+        <h1>{title}</h1>
+    </header>
+    <v:for items={items} as="item">
+
+    </v:for>
+</article>
