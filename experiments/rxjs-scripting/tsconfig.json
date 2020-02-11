@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "baseUrl": "./",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "strictNullChecks": true,
+        "downlevelIteration": true,
+        "lib": ["es2017"]
+    }
+}
