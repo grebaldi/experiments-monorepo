@@ -1,12 +1,21 @@
 import * as React from "react";
 
+export const structure = {
+
+}
+
 type MyComponentProps = {
-    title: string
-    description: string
+    title: React.ReactNode
+    description: React.ReactNode
 };
 
-function MyComponent(props: MyComponentProps) {
-    return (<div>{props.title}</div>);
+export default function MyComponent(props: MyComponentProps) {
+    return (
+      <div>
+        <h2>{props.title}</h2>
+        {props.description}
+      </div>
+    );
 }
 
 async function prototype<T extends React.ComponentType<any>>(
@@ -18,9 +27,11 @@ async function prototype<T extends React.ComponentType<any>>(
 
 export async function getInitialProps() {
     return {
-      myFirstPath: await prototype(MyComponent, {
-        title: 'foo',
-        description: 'string',
-      }),
+      myFirstPath: (
+        <MyComponent
+          title="Foo"
+          description={<MyComponent title="Test" description="Toast" />}
+        />
+      ),
     };
 }
