@@ -1324,6 +1324,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-01-08T19:53:19+00:00"
         },
         {
@@ -1332,7 +1333,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Experiment.Demo",
-                "reference": "7718cdf4ad84aa9f4a856fadf64e3267526f96a5"
+                "reference": "f2a00f81cfb111582d6a0c129bf044f16a97a47e"
             },
             "require": {
                 "neos/neos": "*",
@@ -1348,6 +1349,9 @@
                 "psr-4": {
                     "Experiment\\Demo\\": "Classes/"
                 }
+            },
+            "transport-options": {
+                "relative": true
             }
         },
         {
@@ -6763,16 +6767,16 @@
         },
         {
             "name": "typo3fluid/fluid",
-            "version": "2.6.8",
+            "version": "2.6.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3/Fluid.git",
-                "reference": "854c3b682aa4d2899f4246276cc60ad52cd8e34e"
+                "reference": "f20db4e74cf9803c6cffca2ed2f03e1b0b89d0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3/Fluid/zipball/854c3b682aa4d2899f4246276cc60ad52cd8e34e",
-                "reference": "854c3b682aa4d2899f4246276cc60ad52cd8e34e",
+                "url": "https://api.github.com/repos/TYPO3/Fluid/zipball/f20db4e74cf9803c6cffca2ed2f03e1b0b89d0dc",
+                "reference": "f20db4e74cf9803c6cffca2ed2f03e1b0b89d0dc",
                 "shasum": ""
             },
             "require": {
@@ -6798,7 +6802,7 @@
                 "LGPL-3.0-or-later"
             ],
             "description": "The TYPO3 Fluid template rendering engine",
-            "time": "2019-12-02T06:33:10+00:00"
+            "time": "2020-11-16T21:38:14+00:00"
         },
         {
             "name": "webonyx/graphql-php",
@@ -7073,6 +7077,7 @@
                 "phar",
                 "update"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:45:57+00:00"
         },
         {
@@ -7879,6 +7884,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -8981,5 +8987,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.2"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }
